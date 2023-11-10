@@ -2,3 +2,5 @@
 
 ## Roadmap
 ☑️ Blocklink
+🔲 Flipbox
+🔲 Schawing-Button
