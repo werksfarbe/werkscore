@@ -1,6 +1,6 @@
 # werkscore
 
 ## Roadmap
-☑️ Blocklink
-🔲 Flipbox
-🔲 Schawing-Button
+- [x] Blocklink
+- [ ] Flipbox
+- [ ] Schawing-Button
