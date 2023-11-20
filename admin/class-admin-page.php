@@ -1,5 +1,5 @@
 <?php
-class WerkscorePluginAdminPage {
+class WerkscorePluginAdminPage  {
 
 	public function __construct() {
 		add_action('admin_menu', array($this, 'add_plugin_page'));
@@ -51,19 +51,30 @@ class WerkscorePluginAdminPage {
 			array($this, 'blocklink_callback'), // Callback
 			'werkscore-plugin', // Page
 			'setting_section_id' // Section           
-		);      
+		);
+
+		// Hinzufügen der neuen Checkbox für Typehelper
+		add_settings_field(
+			'typehelper', // ID
+			'Typehelper-Klassen aktivieren', // Title
+			array($this, 'typehelper_callback'), // Callback
+			'werkscore-plugin', // Page
+			'setting_section_id' // Section           
+		); 
 	}
 
 	public function sanitize($input) {
 		$new_input = array();
 		if(isset($input['blocklink']))
 			$new_input['blocklink'] = absint($input['blocklink']);
+		if(isset($input['typehelper']))
+			$new_input['typehelper'] = absint($input['typehelper']);
 
 		return $new_input;
 	}
 
 	public function print_section_info() {
-		print 'Aktivieren oder deaktivieren Sie den Blocklink:';
+		print 'Aktivieren oder deaktivieren Sie den Blocklink und Typehelper:';
 	}
 
 	public function blocklink_callback() {
@@ -72,8 +83,21 @@ class WerkscorePluginAdminPage {
 		<input type="checkbox" id="blocklink" name="blocklink_option[blocklink]" value='1' <?php checked(1, $options['blocklink'], true); ?>/>
 		<?php
 	}
+
+	// Callback-Funktion für die Typehelper-Checkbox
+	public function typehelper_callback() {
+		$options = get_option('blocklink_option');
+		$typehelper_checked = isset($options['typehelper']) && $options['typehelper'] == 1 ? 'checked' : '';
+		?>
+		<input type="checkbox" id="typehelper" name="blocklink_option[typehelper]" value='1' <?php echo $typehelper_checked; ?>/>
+		<?php
+	}
 }
 
-if (is_admin())
+if (is_admin()) {
 	$werkscore_plugin_admin_page = new WerkscorePluginAdminPage();
+	// Hinzufügen der Funktion zum Einbinden der CSS-Datei
+	add_action('wp_enqueue_scripts', 'enqueue_typehelper_styles');
+}
+
 ?>

@@ -1,0 +1,67 @@
+.like-h1 {
+	font-family: var(--h1-font-family);
+	font-size: var(--h1-font-size);
+	line-height: var(--h1-line-height);
+	font-weight: var(--h1-font-weight);
+	text-transform: var(--h1-text-transform);
+	font-style: var(--h1-font-style);
+	letter-spacing: var(--h1-letter-spacing);
+	margin-bottom: var(--h1-margin-bottom);
+}
+.like-h2 {
+	font-family: var(--h2-font-family);
+	font-size: var(--h2-font-size);
+	line-height: var(--h2-line-height);
+	font-weight: var(--h2-font-weight);
+	text-transform: var(--h2-text-transform);
+	font-style: var(--h2-font-style);
+	letter-spacing: var(--h2-letter-spacing);
+	margin-bottom: var(--h2-margin-bottom);
+}
+.like-h3 {
+	font-family: var(--h3-font-family);
+	font-size: var(--h3-font-size);
+	line-height: var(--h3-line-height);
+	font-weight: var(--h3-font-weight);
+	text-transform: var(--h3-text-transform);
+	font-style: var(--h3-font-style);
+	letter-spacing: var(--h3-letter-spacing);
+	margin-bottom: var(--h3-margin-bottom);
+}
+.like-h4 {
+	font-family: var(--h4-font-family);
+	font-size: var(--h4-font-size);
+	line-height: var(--h4-line-height);
+	font-weight: var(--h4-font-weight);
+	text-transform: var(--h4-text-transform);
+	font-style: var(--h4-font-style);
+	letter-spacing: var(--h4-letter-spacing);
+	margin-bottom: var(--h4-margin-bottom);
+}
+.like-h5 {
+	font-family: var(--h5-font-family);
+	font-size: var(--h5-font-size);
+	line-height: var(--h5-line-height);
+	font-weight: var(--h5-font-weight);
+	text-transform: var(--h5-text-transform);
+	font-style: var(--h5-font-style);
+	letter-spacing: var(--h5-letter-spacing);
+	margin-bottom: var(--h5-margin-bottom);
+}
+.like-h6 {
+	font-family: var(--h6-font-family);
+	font-size: var(--h6-font-size);
+	line-height: var(--h6-line-height);
+	font-weight: var(--h6-font-weight);
+	text-transform: var(--h6-text-transform);
+	font-style: var(--h6-font-style);
+	letter-spacing: var(--h6-letter-spacing);
+	margin-bottom: var(--h6-margin-bottom);
+}
+.like-p {
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+	font-weight: var(--font-weight);
+	margin: 0 0 1.5rem;
+}
