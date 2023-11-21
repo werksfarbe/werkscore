@@ -4,4 +4,4 @@
 - [x] Blocklink
 - [ ] Flipbox
 - [ ] Schawing-Button
-- [ ] Typohelper
+- [x] Typohelper
