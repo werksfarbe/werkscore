@@ -93,6 +93,7 @@ class WerkscorePluginAdminPage  {
 		<div class="collapse-info" id="blocklink-info">
 			<p>Setze in dein Rasterlayout einen Textbereich der auf das Post verlinkt. Gib dem Element die Klasse "blocklink". Dieser wird automataisch über die gesamte Fläche gelegt.</p>
 			<p><img src="<?php echo esc_url( $this->get_image_url('blocklink.png') ); ?>" style="max-width: 200px" /></p>
+			<p>Danach noch als Text in dem Textelement {{the_title}} eintragen damit der Text nicht leer ist</p>
 		</div>
 		<?php
 	}
