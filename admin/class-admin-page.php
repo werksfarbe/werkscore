@@ -1,4 +1,10 @@
 <?php
+function werkscore_enqueue_admin_styles_and_scripts() {
+	wp_enqueue_style('werkscore-admin-style', plugin_dir_url(__FILE__) . 'css/admin-style.css');
+	wp_enqueue_script('werkscore-admin-script', plugin_dir_url(__FILE__) . 'js/admin-script.js', array('jquery'), null, true);
+}
+add_action('admin_enqueue_scripts', 'werkscore_enqueue_admin_styles_and_scripts');
+
 class WerkscorePluginAdminPage  {
 
 	public function __construct() {
@@ -8,8 +14,8 @@ class WerkscorePluginAdminPage  {
 
 	public function add_plugin_page() {
 		add_menu_page(
-			'Werkscore Plugin Einstellungen', // Page title
-			'Werkscore Plugin', // Menu title
+			'Werkscore Einstellungen', // Page title
+			'Werkscore', // Menu title
 			'manage_options', // Capability
 			'werkscore-plugin', // Menu slug
 			array($this, 'create_admin_page') // Function
@@ -76,11 +82,18 @@ class WerkscorePluginAdminPage  {
 	public function print_section_info() {
 		print 'Aktivieren oder deaktivieren Sie den Blocklink und Typehelper:';
 	}
-
+	// Funktion zum Generieren des Bildpfads
+	private function get_image_url( $image_name ) {
+		return plugins_url( 'admin/img/' . $image_name, dirname(__FILE__) );
+	}
 	public function blocklink_callback() {
 		$options = get_option('blocklink_option');
 		?>
 		<input type="checkbox" id="blocklink" name="blocklink_option[blocklink]" value='1' <?php checked(1, $options['blocklink'], true); ?>/>
+		<div class="collapse-info" id="blocklink-info">
+			<p>Setze in dein Rasterlayout einen Textbereich der auf das Post verlinkt. Gib dem Element die Klasse "blocklink". Dieser wird automataisch über die gesamte Fläche gelegt.</p>
+			<p><img src="<?php echo esc_url( $this->get_image_url('blocklink.png') ); ?>" style="max-width: 200px" /></p>
+		</div>
 		<?php
 	}
 
@@ -90,6 +103,18 @@ class WerkscorePluginAdminPage  {
 		$typehelper_checked = isset($options['typehelper']) && $options['typehelper'] == 1 ? 'checked' : '';
 		?>
 		<input type="checkbox" id="typehelper" name="blocklink_option[typehelper]" value='1' <?php echo $typehelper_checked; ?>/>
+		<div class="collapse-info" id="blocklink-info">
+			<p>Jetzt kannst du folgende Klasse für deine Typo nutzen:</p>
+			<ul>
+				<li>like-h1</li>
+				<li>like-h2</li>
+				<li>like-h3</li>
+				<li>like-h4</li>
+				<li>like-h5</li>
+				<li>like-h6</li>
+				<li>like-p</li>
+			</ul>
+		</div>
 		<?php
 	}
 }
