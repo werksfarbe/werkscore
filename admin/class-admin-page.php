@@ -25,7 +25,7 @@ class WerkscorePluginAdminPage  {
 	public function create_admin_page() {
 		?>
 		<div class="wrap">
-			<h1>Werkscore Plugin Einstellungen</h1>
+			<h1>Werkscore Einstellungen</h1>
 			<form method="post" action="options.php">
 				<?php
 				settings_fields('werkscore_option_group');
@@ -67,20 +67,37 @@ class WerkscorePluginAdminPage  {
 			'werkscore-plugin', // Page
 			'setting_section_id' // Section           
 		); 
+		// Hinzufügen der neuen Checkbox für iOS Fix
+		add_settings_field(
+			'ios_fullscreen_fix', // ID
+			'Fullscreen iOS-Fix aktivieren', // Title 
+			array($this, 'ios_fullscreen_fix_callback'), // Callback
+			'werkscore-plugin', // Page
+			'setting_section_id' // Section           
+		); 
+
 	}
 
 	public function sanitize($input) {
 		$new_input = array();
-		if(isset($input['blocklink']))
+	
+		if (isset($input['blocklink'])) {
 			$new_input['blocklink'] = absint($input['blocklink']);
-		if(isset($input['typehelper']))
+		}
+	
+		if (isset($input['typehelper'])) {
 			$new_input['typehelper'] = absint($input['typehelper']);
-
+		}
+	
+		if (isset($input['ios_fullscreen_fix'])) {
+			$new_input['ios_fullscreen_fix'] = absint($input['ios_fullscreen_fix']);
+		}
+	
 		return $new_input;
 	}
 
 	public function print_section_info() {
-		print 'Aktivieren oder deaktivieren Sie den Blocklink und Typehelper:';
+		print 'Aktivieren oder deaktivieren Sie erweiterte Optionen für IMPREZA:';
 	}
 	// Funktion zum Generieren des Bildpfads
 	private function get_image_url( $image_name ) {
@@ -118,12 +135,25 @@ class WerkscorePluginAdminPage  {
 		</div>
 		<?php
 	}
+	public function ios_fullscreen_fix_callback() {
+		$options = get_option('blocklink_option');
+		$ios_fix_checked = isset($options['ios_fullscreen_fix']) && $options['ios_fullscreen_fix'] == 1 ? 'checked' : '';
+		?>
+		<input type="checkbox" id="ios_fullscreen_fix" name="blocklink_option[ios_fullscreen_fix]" value='1' <?php echo $ios_fix_checked; ?>/>
+		<div class="collapse-info" id="iosfullscreenfix-info">
+			<p>Es gibt nun keinen Jumper mehr auf iOS mit Fullscreen Sections</p>
+		</div>
+		<?php
+	}
+
+
 }
 
 if (is_admin()) {
 	$werkscore_plugin_admin_page = new WerkscorePluginAdminPage();
 	// Hinzufügen der Funktion zum Einbinden der CSS-Datei
 	add_action('wp_enqueue_scripts', 'enqueue_typehelper_styles');
+	add_action('wp_enqueue_scripts', 'enqueue_ioshelper_styles');
 }
 
 ?>

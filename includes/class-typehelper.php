@@ -1,7 +1,5 @@
 <?php
 add_action('wp_enqueue_scripts', 'enqueue_typehelper_styles');
-
-// Funktion zum Einbinden der CSS-Datei
 function enqueue_typehelper_styles() {
 	$options = get_option('blocklink_option');
 	if ( isset($options['typehelper']) && $options['typehelper'] == 1 ) {
