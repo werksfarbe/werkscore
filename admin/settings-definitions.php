@@ -20,7 +20,7 @@ class WerkscorePluginSettings {
 		// Sie müssen nur die Sektion hinzufügen, da die Felder bereits im Template sind
 		add_settings_section(
 			'setting_section_id', // ID
-			'Einstellungen', // Title
+			'Übersicht', // Title
 			null, // Kein Callback notwendig, da die Beschreibung im Template ist
 			'werkscore-plugin' // Page
 		);  
