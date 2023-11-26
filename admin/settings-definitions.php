@@ -1,6 +1,5 @@
 <?php
 // settings-definitions.php
-
 class WerkscorePluginSettings {
 
 	private $options;
@@ -17,22 +16,29 @@ class WerkscorePluginSettings {
 			array($this, 'sanitize') // Sanitize
 		);
 
-		// Sie müssen nur die Sektion hinzufügen, da die Felder bereits im Template sind
 		add_settings_section(
 			'setting_section_id', // ID
 			'Übersicht', // Title
 			null, // Kein Callback notwendig, da die Beschreibung im Template ist
 			'werkscore-plugin' // Page
-		);  
+		);
+
+		// Entfernen Sie das Hinzufügen von Einstellungsfeldern, da diese im Template eingebunden sind
 	}
 
 	public function sanitize($input) {
 		$new_input = array();
 		foreach ($input as $key => $value) {
-			$new_input[$key] = absint($value);
+			if ($key == 'parallax_distance' || $key == 'parallax_scale') {
+				$new_input[$key] = sanitize_text_field($value);
+			} else {
+				$new_input[$key] = absint($value);
+			}
 		}
 		return $new_input;
 	}
 }
 
-// Die Instanz der Klasse wird in der Hauptdatei des Plugins erstellt.
+
+
+

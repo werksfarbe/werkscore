@@ -22,7 +22,6 @@ if (!defined('ABSPATH')) {
 						<?php
 						settings_fields('werkscore_option_group');
 						do_settings_sections('werkscore-plugin');
-						
 						?>
 						<!-- Blocklink-Option -->
 						<div class="card">
@@ -82,6 +81,36 @@ if (!defined('ABSPATH')) {
 								</div>
 							</div>
 						</div>
+						<!-- Parallax Flipbox-Option -->
+						<div class="card">
+							<div class="card-body">
+								<div class="option">
+									<input type="checkbox" id="parallax_flipbox" name="blocklink_option[parallax_flipbox]" value='1' <?php checked(1, $options['parallax_flipbox'], true); ?>/>
+									<label for="parallax_flipbox">Parallax Flipbox aktivieren</label>
+									<span class="" type="button" data-bs-toggle="collapse" data-bs-target="#parallax_flipbox-info" aria-expanded="false" aria-controls="parallax_flipbox-info">ℹ️</span>
+								</div>
+						
+								<div class="option">
+									<label for="parallax_distance">Parallax-Abstand:</label>
+									<input type="text" id="parallax_distance" name="blocklink_option[parallax_distance]" value="<?php echo esc_attr($options['parallax_distance'] ?? '70px'); ?>"/>
+								</div>
+						
+								<div class="option">
+									<label for="parallax_scale">Skalierung:</label>
+									<input type="text" id="parallax_scale" name="blocklink_option[parallax_scale]" value="<?php echo esc_attr($options['parallax_scale'] ?? '0.8'); ?>"/>
+								</div>
+								<div class="collapse" id="parallax_flipbox-info">
+									<div class="card card-body">
+										<p>Rasterlayout</p>
+										<p>
+											{"data":{"vwrapper:1":{"conditions":[],"css":{"default":{"background-color":"#0d780d"}},"el_class":"paca-container"},"vwrapper:2":{"alignment":"center","valign":"middle","conditions":[],"css":{"default":{"background-color":"linear-gradient(135deg,#e95095,#7049ba)"}},"el_class":"front side"},"vwrapper:3":{"conditions":[],"css":{"default":{"background-color":"_content_link"}},"el_class":"back side"},"vwrapper:4":{"conditions":[],"el_class":"content"},"vwrapper:5":{"conditions":[],"el_class":"content"},"post_title:1":{"link":"%7B%22type%22%3A%22post%22%7D"},"text:1":{"text":"Front","link":"%7B%22url%22%3A%22%22%7D"},"post_title:2":{"link":"%7B%22type%22%3A%22post%22%7D"},"text:2":{"text":"Back","link":"%7B%22url%22%3A%22%22%7D"},"vwrapper:6":{"conditions":[],"el_class":"paca-wrapper"}},"default":{"options":{"fixed":0,"ratio":"1x1","ratio_width":"21","ratio_height":"9","overflow":0,"color_bg":"","color_text":"","bg_img_source":"none","bg_img":"","bg_img_wrapper_start":"","bg_file_size":"large","bg_img_size":"cover","bg_img_position":"center center","bg_img_repeat":"no-repeat","bg_img_wrapper_end":"","border_radius":0,"box_shadow":0,"box_shadow_hover":0,"el_class":""},"layout":{"hidden":[],"middle_center":["vwrapper:6"],"vwrapper:1":["vwrapper:2","vwrapper:3"],"vwrapper:2":["vwrapper:4"],"vwrapper:3":["vwrapper:5"],"vwrapper:4":["post_title:1","text:1"],"vwrapper:5":["post_title:2","text:2"],"vwrapper:6":["vwrapper:1"]}}}
+										</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
 					
 				</div>
 	
