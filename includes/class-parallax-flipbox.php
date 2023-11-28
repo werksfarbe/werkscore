@@ -7,11 +7,13 @@ function werkscore_enqueue_parallax_styles() {
 
 		$parallax_distance = !empty($options['parallax_distance']) ? $options['parallax_distance'] : '70px';
 		$parallax_scale = !empty($options['parallax_scale']) ? $options['parallax_scale'] : '0.8';
+		$parallax_speed = !empty($options['parallax_speed']) ? $options['parallax_speed'] : '0.5s';
 
 		$custom_css = "
 			:root {
 				--paca-translatez: {$parallax_distance};
 				--paca-scale: {$parallax_scale};
+				--paca-speed: {$parallax_speed};
 			}";
 		wp_add_inline_style('parallax-flipbox-style', $custom_css);
 	}

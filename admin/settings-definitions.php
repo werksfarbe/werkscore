@@ -29,7 +29,7 @@ class WerkscorePluginSettings {
 	public function sanitize($input) {
 		$new_input = array();
 		foreach ($input as $key => $value) {
-			if ($key == 'parallax_distance' || $key == 'parallax_scale') {
+			if ($key == 'parallax_distance' || $key == 'parallax_scale' || $key == 'parallax_speed') {
 				$new_input[$key] = sanitize_text_field($value);
 			} else {
 				$new_input[$key] = absint($value);
