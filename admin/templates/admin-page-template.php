@@ -99,6 +99,10 @@ if (!defined('ABSPATH')) {
 									<label for="parallax_scale">Skalierung:</label>
 									<input type="text" id="parallax_scale" name="blocklink_option[parallax_scale]" value="<?php echo esc_attr($options['parallax_scale'] ?? '0.8'); ?>"/>
 								</div>
+								<div class="option">
+									<label for="parallax_speed">Flip-Speed:</label>
+									<input type="text" id="parallax_speed" name="blocklink_option[parallax_speed]" value="<?php echo esc_attr($options['parallax_speed'] ?? '0.8s'); ?>"/>
+								</div>
 								<div class="collapse" id="parallax_flipbox-info">
 									<div class="card card-body">
 										<p>Rasterlayout</p>
