@@ -1,4 +1,5 @@
 <?php
+// Data Attribut an der Section
 function werkscore_add_data_attribute_to_vc_row_if_enabled($output, $obj, $atts) {
 	// Abrufen der Plugin-Einstellungen
 	$options = get_option('blocklink_option');
