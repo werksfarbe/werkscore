@@ -81,6 +81,34 @@ if (!defined('ABSPATH')) {
 								</div>
 							</div>
 						</div>
+						<!-- Section-Color-Changer -->
+						<div class="card">
+							<div class="card-body">
+								<div class="option">
+								<?php
+									// In Ihrer Admin-Seite
+									$options = get_option('blocklink_option');
+									$colors = $options['custom_colors'] ?? []; // Stellen Sie sicher, dass dieser Schlüssel existiert und ein Array ist.
+									
+									// PHP-Array in JSON konvertieren, um es in JavaScript zu verwenden
+									echo "<script>var savedColors = " . json_encode($colors) . ";</script>";
+								?>
+
+									<input type="checkbox" id="section_color_change" name="blocklink_option[section_color_change]" value='1' <?php checked(1, $options['section_color_change'], true); ?>/>
+									<label for="section_color_change">Section-Farbwechsel aktivieren</label>
+									<span class="" type="button" data-bs-toggle="collapse" data-bs-target="#section_color_change-info" aria-expanded="false" aria-controls="section_color_change-info">ℹ️</span>
+									<!-- HTML für die dynamischen Farbfelder -->
+									<div id="color-fields-container"></div>
+									<button type="button" id="add-color-button" class="button button-secondary">Farbe hinzufügen</button>
+									<!-- Felder siehe JavaScript -->
+									<div class="collapse" id="section_color_change-info">
+										<div class="card card-body">
+											<p>Farbwechsler</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<!-- Parallax Flipbox-Option -->
 						<div class="card">
 							<div class="card-body">

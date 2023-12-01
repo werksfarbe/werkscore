@@ -1,17 +1,21 @@
 <?php
-function my_custom_vc_row_html( $atts, $content = null ) {
-	// Extrahieren der Attribute
-	extract( shortcode_atts( array(
-		'changecolor' => '',
-	), $atts ) );
+function werkscore_extend_vc_row_if_option_enabled() {
+	// Abrufen der Plugin-Einstellungen
+	$options = get_option('blocklink_option');
 
-	// Erzeugen Sie den HTML-Code für die Section mit dem Data-Attribut
-	$html = '<section data-changecolorto="'.esc_attr($changecolor).'">';
-	$html .= do_shortcode( $content );
-	$html .= '</section>';
-
-	return $html;
+	// Überprüfen, ob die Section-Farbwechsel-Option aktiviert ist
+	if (isset($options['section_color_change']) && $options['section_color_change'] == 1) {
+		// Hinzufügen des benutzerdefinierten Feldes, wenn die Option aktiviert ist
+		if (function_exists('vc_add_param')) {
+			vc_add_param('vc_row', array(
+				'type' => 'textfield',
+				'heading' => 'Farbname',
+				'param_name' => 'color_name',
+				'description' => 'Geben Sie einen Farbnamen für den Farbwechsel ein.'
+			));
+		}
+	}
 }
+add_action('vc_before_init', 'werkscore_extend_vc_row_if_option_enabled');
 
-// Überschreiben des Standard-VC-Row-Shortcodes
-vc_map_update( 'vc_row', array( 'html_template' => 'my_custom_vc_row_html' ) );
+

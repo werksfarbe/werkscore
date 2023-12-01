@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once plugin_dir_path(__FILE__) . 'admin-menu.php';
 require_once plugin_dir_path(__FILE__) . 'settings-definitions.php';
 require_once plugin_dir_path(__FILE__) . 'enqueue-scripts.php';
+require_once plugin_dir_path(__FILE__) . 'admin-color-change-section.php';
 
 // Initialisieren der Klassen
 if (is_admin()) {

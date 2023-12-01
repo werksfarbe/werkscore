@@ -118,8 +118,6 @@
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
 }
-
-
 .collapse-info {
 	background: #ffffff;
 	padding: 1.5rem;
@@ -131,4 +129,8 @@
 .werkscore-header h1 {
 	padding: 0;
 	margin: 0;
+}
+.section_color_change_fieldgroup {
+  white-space: nowrap;
+  margin-bottom: 10px;
 }
