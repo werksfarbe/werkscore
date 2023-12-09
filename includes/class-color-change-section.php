@@ -12,14 +12,13 @@ function werkscore_add_data_attribute_to_vc_row_if_enabled($output, $obj, $atts)
 			if (!empty($atts['color_name'])) {
 				// Hinzufügen des data-Attributs
 				$color_name = esc_attr($atts['color_name']);
-				$output = preg_replace('/<section(\s+class="[^"]*)"/', '<section$1 panel" data-colorchangto="' . esc_attr($color_name) . '"', $output, 1);
+				$output = preg_replace('/<section/', '<section data-colorchangto="' . $color_name . '"', $output, 1);
 			}
 		}
 	}
 	return $output;
 }
-add_filter('vc_shortcode_output', 'werkscore_add_data_attribute_to_vc_row_if_enabled', 10, 3);
-
+add_filter('vc_shortcode_output', 'werkscore_add_data_attribute_to_vc_row_if_enabled', 20, 3);
 
 function werkscore_enqueue_section_color_change_script() {
 	// Abrufen der Plugin-Einstellungen
@@ -27,14 +26,18 @@ function werkscore_enqueue_section_color_change_script() {
 
 	// Überprüfen, ob die "Section-Farbwechsel aktivieren"-Option aktiviert ist
 	if (!empty($options['section_color_change']) && $options['section_color_change'] == 1) {
-		// Pfad zu Ihrem Plugin-Verzeichnis
 		$plugin_url = plugin_dir_url(__FILE__);
+		wp_enqueue_script('werkscore-section-color-change', $plugin_url . '../public/scripts/sectioncolorto.js', array('jquery'), null, true);
 
-		// Einreihen des JavaScripts
-		wp_enqueue_script('werkscore-section-color-change', plugin_dir_url(dirname(__FILE__)) . 'public/scripts/sectioncolorto.js', array('jquery'), null, true);
+		// Übergeben der Admin-Einstellungen an das Script
+		wp_localize_script('werkscore-section-color-change', 'werkscoreSettings', array(
+			'bodySelector' => $options['body_selector'] ?? '.l-canvas',
+			'panelSelector' => $options['panel_selector'] ?? '.panel'
+		));
 	}
 }
 add_action('wp_enqueue_scripts', 'werkscore_enqueue_section_color_change_script');
+
 
 
 function werkscore_generate_custom_color_classes() {
