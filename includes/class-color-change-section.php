@@ -32,7 +32,7 @@ function werkscore_enqueue_section_color_change_script() {
 		// Übergeben der Admin-Einstellungen an das Script
 		wp_localize_script('werkscore-section-color-change', 'werkscoreSettings', array(
 			'bodySelector' => $options['body_selector'] ?? '.l-canvas',
-			'panelSelector' => $options['panel_selector'] ?? '.panel'
+			'panelSelector' => $options['panel_selector'] ?? '.l-section'
 		));
 	}
 }
@@ -46,11 +46,13 @@ function werkscore_generate_custom_color_classes() {
 
 	// Überprüfen, ob die "Section-Farbwechsel aktivieren"-Option aktiviert ist
 	if (isset($options['section_color_change']) && $options['section_color_change'] == 1) {
+		// Ermitteln des Body-Selectors
+		$bodySelector = isset($options['body_selector']) && !empty($options['body_selector']) ? $options['body_selector'] : '.l-canvas';
 		// Überprüfen, ob es benutzerdefinierte Farben gibt
 		if (isset($options['custom_colors']) && is_array($options['custom_colors'])) {
 			echo '<style>';
 			// Hinzufügen des grundlegenden CSS-Befehls
-			echo '.l-canvas { transition: background-color 1s ease; }';
+			echo esc_attr($bodySelector) . ' { transition: background-color 1s ease; }';
 			foreach ($options['custom_colors'] as $color) {
 				// Generieren der CSS-Klasse für jede Farbe
 				echo '.color-' . sanitize_title($color['name']) . ' { background-color: ' . esc_attr($color['value']) . '; }';
