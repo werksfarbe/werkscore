@@ -40,6 +40,22 @@ if (!defined('ABSPATH')) {
 								</div>
 							</div>
 						</div>
+						<!-- Grid-Optionen deaktivieren -->
+						<div class="card">
+							<div class="card-body">
+								<div class="option">
+									<input type="checkbox" id="disable_grid_options" name="blocklink_option[disable_grid_options]" value='1' <?php checked(1, $options['disable_grid_options'], true); ?>/>
+									<label for="disable_grid_options">Grid-Optionen deaktivieren</label>
+									<span class="" type="button" data-bs-toggle="collapse" data-bs-target="#disable_grid_options-info" aria-expanded="false" aria-controls="disable_grid_options-info">ℹ️</span>
+						
+									<div class="collapse" id="disable_grid_options-info">
+										<div class="card card-body">
+											<p>Deaktivieren Sie spezifische Grid-Einstellungen, die im Frontend angewendet werden.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<!-- Typehelper-Option -->
 						<div class="card">
 							<div class="card-body">

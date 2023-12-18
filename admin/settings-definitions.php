@@ -34,6 +34,14 @@ class WerkscorePluginSettings {
 			}
 		}
 
+ section-color-changer
+		// Gridoptionen deaktivieren
+		if(isset($input['disable_grid_options'])) {
+			$new_input['disable_grid_options'] = absint($input['disable_grid_options']);
+		}
+
+	
+		// Zusätzliche Logik, um Farben zu gruppieren und als Array zu speichern
 		$new_input['custom_colors'] = $this->group_custom_colors($new_input);
 
 		return $new_input;

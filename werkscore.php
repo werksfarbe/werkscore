@@ -3,7 +3,7 @@
 Plugin Name: WerksCore
 Plugin URI: werksfarbe.com
 Description: Basis für Werksfarbe Plugins.
-Version: 0.4.1
+Version: 0.5
 Author: Werksfarbe
 Author URI: https://werksfarbe.com/
 License: -
@@ -16,4 +16,5 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-typehelper.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-iosfix.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-parallax-flipbox.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-color-change-section.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-remove-gridoptions.php';
 
