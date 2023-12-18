@@ -16,14 +16,7 @@ class WerkscorePluginSettings {
 			array($this, 'sanitize') // Sanitize
 		);
 
-		add_settings_section(
-			'setting_section_id', // ID
-			'Übersicht', // Title
-			null, // Kein Callback notwendig, da die Beschreibung im Template ist
-			'werkscore-plugin' // Page
-		);
-
-		// Entfernen Sie das Hinzufügen von Einstellungsfeldern, da diese im Template eingebunden sind
+		// Settings section hinzufügen (wird im Template gehandhabt)
 	}
 
 	public function sanitize($input) {
@@ -32,13 +25,16 @@ class WerkscorePluginSettings {
 			if ($key == 'parallax_distance' || $key == 'parallax_scale' || $key == 'parallax_speed') {
 				$new_input[$key] = sanitize_text_field($value);
 			} elseif (strpos($key, 'color_name_') === 0 || strpos($key, 'color_value_') === 0) {
-				// Bereinigen der Farbnamen und Farbwerte
+				$new_input[$key] = sanitize_text_field($value);
+			} elseif ($key == 'body_selector' || $key == 'panel_selector') {
+				// Bereinigen der neuen Felder "Body-Selector" und "Panel-Selector"
 				$new_input[$key] = sanitize_text_field($value);
 			} else {
 				$new_input[$key] = absint($value);
 			}
 		}
 
+ section-color-changer
 		// Gridoptionen deaktivieren
 		if(isset($input['disable_grid_options'])) {
 			$new_input['disable_grid_options'] = absint($input['disable_grid_options']);
@@ -47,10 +43,10 @@ class WerkscorePluginSettings {
 	
 		// Zusätzliche Logik, um Farben zu gruppieren und als Array zu speichern
 		$new_input['custom_colors'] = $this->group_custom_colors($new_input);
-	
+
 		return $new_input;
 	}
-	
+
 	private function group_custom_colors($input) {
 		$colors = array();
 		foreach ($input as $key => $value) {
@@ -66,7 +62,4 @@ class WerkscorePluginSettings {
 		return $colors;
 	}
 }
-
-
-
 

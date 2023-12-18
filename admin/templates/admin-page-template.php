@@ -109,10 +109,20 @@ if (!defined('ABSPATH')) {
 									// PHP-Array in JSON konvertieren, um es in JavaScript zu verwenden
 									echo "<script>var savedColors = " . json_encode($colors) . ";</script>";
 								?>
-
 									<input type="checkbox" id="section_color_change" name="blocklink_option[section_color_change]" value='1' <?php checked(1, $options['section_color_change'], true); ?>/>
 									<label for="section_color_change">Section-Farbwechsel aktivieren</label>
 									<span class="" type="button" data-bs-toggle="collapse" data-bs-target="#section_color_change-info" aria-expanded="false" aria-controls="section_color_change-info">ℹ️</span>
+									<!-- Zusätzliche Textfelder für Body-Selector und Panel-Selector -->
+									<hr>
+									<label for="body_selector">Body-Selector:</label>
+									<input type="text" id="body_selector" name="blocklink_option[body_selector]" value="<?php echo esc_attr($options['body_selector'] ?? '.l-canvas'); ?>"/>
+								
+									<label for="panel_selector">Panel-Selector:</label>
+									<input type="text" id="panel_selector" name="blocklink_option[panel_selector]" value="<?php echo esc_attr($options['panel_selector'] ?? '.l-section'); ?>"/>
+									<hr>
+
+
+
 									<!-- HTML für die dynamischen Farbfelder -->
 									<div id="color-fields-container"></div>
 									<button type="button" id="add-color-button" class="button button-secondary">Farbe hinzufügen</button>

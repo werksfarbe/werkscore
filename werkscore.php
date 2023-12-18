@@ -4,7 +4,6 @@ Plugin Name: WerksCore
 Plugin URI: werksfarbe.com
 Description: Basis für Werksfarbe Plugins.
 Version: 0.5
-	
 Author: Werksfarbe
 Author URI: https://werksfarbe.com/
 License: -
