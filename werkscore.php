@@ -10,6 +10,11 @@ License: -
 Text Domain: werkscore-plugin
 */
 
+// Sicherstellen, dass das Plugin nicht direkt aufgerufen wird
+ if (!defined('WPINC')) {
+	 die;
+ }
+
 require_once plugin_dir_path( __FILE__ ) . 'admin/class-admin-page.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-blocklink.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-typehelper.php';
