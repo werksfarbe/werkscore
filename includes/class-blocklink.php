@@ -1,4 +1,9 @@
 <?php
+// Sicherstellen, dass das Plugin nicht direkt aufgerufen wird
+ if (!defined('WPINC')) {
+	 die;
+ }
+
 add_action('wp_enqueue_scripts', 'enqueue_blocklink_styles');
 function enqueue_blocklink_styles() {
 	$options = get_option('blocklink_option');

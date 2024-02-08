@@ -6,10 +6,10 @@
  * Author: Ihr Name
  */
 
-// Sicherstellen, dass die Datei nicht direkt aufgerufen wird
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+// Stellen Sie sicher, dass dieses Template nur im Kontext der Admin-Seite geladen wird.
+ if (!defined('ABSPATH')) {
+     exit; // Exit if accessed directly
+ }
 
 // Einbinden der separaten Dateien
 require_once plugin_dir_path(__FILE__) . 'admin-menu.php';

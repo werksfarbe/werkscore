@@ -1,4 +1,9 @@
 <?php
+// Stellen Sie sicher, dass dieses Template nur im Kontext der Admin-Seite geladen wird.
+if (!defined('ABSPATH')) {
+	exit; // Exit if accessed directly
+}
+
 function werkscore_extend_vc_row_if_option_enabled() {
 	// Abrufen der Plugin-Einstellungen
 	$options = get_option('blocklink_option');

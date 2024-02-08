@@ -1,4 +1,9 @@
 <?php
+// Stellen Sie sicher, dass dieses Template nur im Kontext der Admin-Seite geladen wird.
+if (!defined('ABSPATH')) {
+	exit; // Exit if accessed directly
+}
+
 // admin-menu.php
 
 class WerkscorePluginAdminMenu {

@@ -1,4 +1,9 @@
 <?php
+// Sicherstellen, dass das Plugin nicht direkt aufgerufen wird
+ if (!defined('WPINC')) {
+	 die;
+ }
+
 function remove_us_portfolio_settings_meta_box( $config ) {
 	// Abrufen der Plugin-Einstellungen
 	$options = get_option('blocklink_option');

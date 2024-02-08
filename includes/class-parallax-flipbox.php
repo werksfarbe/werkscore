@@ -1,4 +1,9 @@
 <?php
+// Sicherstellen, dass das Plugin nicht direkt aufgerufen wird
+ if (!defined('WPINC')) {
+	 die;
+ }
+
 function werkscore_enqueue_parallax_styles() {
 	$options = get_option('blocklink_option');
 

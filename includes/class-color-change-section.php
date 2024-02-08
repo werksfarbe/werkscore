@@ -1,4 +1,9 @@
 <?php
+// Sicherstellen, dass das Plugin nicht direkt aufgerufen wird
+ if (!defined('WPINC')) {
+	 die;
+ }
+
 // Data Attribut an der Section
 function werkscore_add_data_attribute_to_vc_row_if_enabled($output, $obj, $atts) {
 	// Abrufen der Plugin-Einstellungen
