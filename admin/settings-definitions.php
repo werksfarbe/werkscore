@@ -36,6 +36,14 @@ class WerkscorePluginSettings {
 
 		$new_input['custom_colors'] = $this->group_custom_colors($new_input);
 
+
+		if(isset($input['disable_grid_options'])) {
+			$new_input['disable_grid_options'] = absint($input['disable_grid_options']);
+		}
+
+
+
+
 		return $new_input;
 	}
 
