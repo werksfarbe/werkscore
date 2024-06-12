@@ -8,3 +8,4 @@
 - [x] set full height sections to 100svh
 - [x] Parallax Card https://codepen.io/hkmDesigner/pen/zdPrVp
 - [x] Color Change Background
+- [x] Disable Grid Options Metabox
