@@ -34,7 +34,9 @@ class werkscoreUpdater {
 			return;
 		}
 		
-		if (version_compare($plugin_version, $release_data->tag_name, '<')) {
+		$latest_version = $release_data->tag_name;
+		
+		if (version_compare($plugin_version, $latest_version, '<')) {
 			$zip_url = $release_data->zipball_url;
 			self::update_plugin($zip_url);
 		}
