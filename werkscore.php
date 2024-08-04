@@ -3,7 +3,7 @@
 Plugin Name: WerksCore Addon
 Plugin URI: 
 Description: Basis für ImprezaCore Addons.
-Version: 0.6.11
+Version: 0.6.12
 GitHub Plugin URI: https://github.com/werksfarbe/werkscore
 GitHub Branch: main
 License: -
@@ -25,4 +25,10 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-color-change-section.
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-remove-gridoptions.php';
 
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-wfsuperadmin-role.php';
+// Aktion bei der Plugin-Aktivierung
 register_activation_hook(__FILE__, array('WFSuperAdminRole', 'create_role'));
+// Aktion bei der Benutzerrolle-Änderung
+add_filter('editable_roles', array('WFSuperAdminRole', 'filter_editable_roles'));
+add_filter('user_has_cap', array('WFSuperAdminRole', 'filter_user_capabilities'), 10, 4);
+// GitHub-Update-Funktionalität einbinden
+add_action('admin_init', array('werkscoreUpdater', 'check_for_plugin_update'));
