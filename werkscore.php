@@ -3,7 +3,7 @@
 Plugin Name: WerksCore Addon
 Plugin URI: 
 Description: Basis für ImprezaCore Addons.
-Version: 0.6
+Version: 0.6.1
 Author: 
 Author URI: /
 License: -
