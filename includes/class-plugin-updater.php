@@ -64,13 +64,19 @@ class werkscoreUpdater {
 			return;
 		}
 
-		// Zielordner vor der Installation löschen, wenn er bereits existiert
-		$plugin_folder = WP_PLUGIN_DIR . '/werkscore';
-		if ($wp_filesystem->is_dir($plugin_folder)) {
-			$wp_filesystem->delete($plugin_folder, true);
+		// Plugin-Verzeichnisnamen ermitteln
+		$plugin_dir = WP_PLUGIN_DIR . '/' . basename(dirname(__DIR__)) . '-master';
+		if ($wp_filesystem->is_dir($plugin_dir)) {
+			$wp_filesystem->delete($plugin_dir, true);
 		}
 
-		$upgrader = new Plugin_Upgrader();
+		$upgrader = new Plugin_Upgrader(new Plugin_Installer_Skin(array(
+			'api' => false,
+			'nonce' => 'update-plugin_' . plugin_basename(__FILE__),
+			'url' => 'update.php?action=update-plugin&plugin=' . urlencode(plugin_basename(__FILE__)),
+			'plugin' => plugin_basename(__FILE__),
+			'title' => __('Updating Plugin', 'text-domain')
+		)));
 		$result = $upgrader->install($download_file);
 
 		// Heruntergeladene Datei löschen
