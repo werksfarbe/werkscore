@@ -4,8 +4,14 @@ Plugin Name: WerksCore Addon
 Plugin URI: 
 Description: Basis für ImprezaCore Addons.
 Version: 0.6
+<<<<<<< HEAD
 GitHub Plugin URI: https://github.com/werksfarbe/werkscore
 GitHub Branch: main
+=======
+Author: 
+Author URI: /
+License: -
+>>>>>>> adminrolle
 Text Domain: werkscore-plugin
 */
 
