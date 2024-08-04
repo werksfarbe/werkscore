@@ -44,6 +44,7 @@ class werkscoreUpdater {
 
 	private static function update_plugin($zip_url) {
 		include_once(ABSPATH . 'wp-admin/includes/class-wp-upgrader.php');
+		include_once(ABSPATH . 'wp-admin/includes/file.php');
 
 		// Temporären Download-Pfad festlegen
 		$download_file = download_url($zip_url, 300);
@@ -61,6 +62,12 @@ class werkscoreUpdater {
 			// Fehlerbehandlung bei ungültiger Datei
 			error_log('Heruntergeladene Datei ist ungültig');
 			return;
+		}
+
+		// Zielordner vor der Installation löschen, wenn er bereits existiert
+		$plugin_folder = WP_PLUGIN_DIR . '/werkscore';
+		if ($wp_filesystem->is_dir($plugin_folder)) {
+			$wp_filesystem->delete($plugin_folder, true);
 		}
 
 		$upgrader = new Plugin_Upgrader();
