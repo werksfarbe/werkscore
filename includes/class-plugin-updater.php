@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 class werkscoreUpdater {
 
 	public static function check_for_plugin_update() {
-		$plugin_file = plugin_dir_path(__FILE__) . '../wf-superadmin-role-creator.php'; // Pfad zur Haupt-Plugin-Datei
+		$plugin_file = plugin_dir_path(__FILE__) . '../werkscore.php'; // Pfad zur Haupt-Plugin-Datei
 		$plugin_data = get_plugin_data($plugin_file);
 		$plugin_version = $plugin_data['Version'];
 		$github_api_url = 'https://api.github.com/repos/werksfarbe/werkscore/releases/latest';
