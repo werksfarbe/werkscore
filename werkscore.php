@@ -1,12 +1,11 @@
 <?php
 /*
-Plugin Name: WerksCore
-Plugin URI: werksfarbe.com
-Description: Basis für Werksfarbe Plugins.
-Version: 0.5
-Author: Werksfarbe
-Author URI: https://werksfarbe.com/
-License: -
+Plugin Name: WerksCore Addon
+Plugin URI: 
+Description: Basis für ImprezaCore Addons.
+Version: 0.6
+GitHub Plugin URI: https://github.com/werksfarbe/werkscore
+GitHub Branch: main
 Text Domain: werkscore-plugin
 */
 
@@ -23,3 +22,5 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-parallax-flipbox.php'
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-color-change-section.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-remove-gridoptions.php';
 
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-wfsuperadmin-role.php';
+register_activation_hook(__FILE__, array('WFSuperAdminRole', 'create_role'));
