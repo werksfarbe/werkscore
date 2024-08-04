@@ -71,3 +71,15 @@ jQuery(document).ready(function($) {
 	// Rufen Sie die Funktion beim Laden der Seite auf
 	applyColorOfMostVisibleSection();
 });
+// Fix for alternate color 
+document.addEventListener('DOMContentLoaded', function() {
+	var css = '.color_alternate[data-colorchangto] { background-color: transparent !important; }';
+	var style = document.createElement('style');
+	style.type = 'text/css';
+	if (style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		style.appendChild(document.createTextNode(css));
+	}
+	document.getElementsByTagName('head')[0].appendChild(style);
+});
