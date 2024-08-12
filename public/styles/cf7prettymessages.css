@@ -29,7 +29,7 @@
 	border-bottom-right-radius: 0;
 }
 
-
+.l-section.color_alternate .wpcf7 form.invalid .wpcf7-not-valid-tip,
 .l-section.color_alternate .wpcf7 form.invalid .wpcf7-response-output {
 	background: var(--color-alt-content-primary);
 	border-color: var(--color-alt-content-primary);
