@@ -178,6 +178,16 @@ if (!defined('ABSPATH')) {
 									<div class="collapse" id="cf7_message_prettifyer-info">
 										<div class="card card-body">
 											<p>Aktivieren Sie diese Option, um benutzerdefinierte CSS-Stile auf die Nachrichten von Contact Form 7 anzuwenden, die das Erscheinungsbild verbessern.</p>
+											<p>Benutze diese CSS-Vars zum Verfeinern:</p>
+											<code>
+												:root {<br>
+												  --cf7pms-padding: calc( var(--inputs-height)/2 + var(--inputs-border-width,0px) - 0.7em ) var(--inputs-padding);<br>
+												  --cf7pms-border-radius: 0.3rem;<br>
+												  --cf7pms-msgbackground: var(--color-content-primary);<br>
+												  --cf7pms-msgbordercolor: var(--color-content-primary);<br>
+												  --cf7pms-textcolor: var(--color-alt-content-text);<br>
+												}<br>
+											</code>
 											<?php
 											$cf7_status = check_contact_form_7_status();
 											if ($cf7_status === 'active') : ?>
