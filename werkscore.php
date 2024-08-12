@@ -23,6 +23,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-iosfix.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-parallax-flipbox.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-color-change-section.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-remove-gridoptions.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/cf7prettymessages.php';
 
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-wfsuperadmin-role.php';
 // Aktion bei der Plugin-Aktivierung

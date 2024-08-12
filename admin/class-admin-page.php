@@ -22,3 +22,16 @@ if (is_admin()) {
 	$werkscore_plugin_admin_menu = new WerkscorePluginAdminMenu();
 	$werkscore_plugin_settings = new WerkscorePluginSettings();
 }
+// Check Contact Form 7
+function check_contact_form_7_status() {
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+    $plugin_file = 'contact-form-7/wp-contact-form-7.php';
+
+    if (!file_exists(WP_PLUGIN_DIR . '/' . $plugin_file)) {
+        return 'not_installed';
+    } elseif (!is_plugin_active($plugin_file)) {
+        return 'not_activated';
+    } else {
+        return 'active';
+    }
+}
