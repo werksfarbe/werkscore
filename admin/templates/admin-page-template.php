@@ -168,6 +168,40 @@ if (!defined('ABSPATH')) {
 
 							</div>
 						</div>
+						<!-- Contact Form 7 Check -->
+						<div class="card">
+							<div class="card-body">
+								<div class="option">
+									<input type="checkbox" id="cf7_message_prettifyer" name="blocklink_option[cf7_message_prettifyer]" value='1' <?php checked(1, $options['cf7_message_prettifyer'], true); ?>/>
+									<label for="cf7_message_prettifyer">Contact Form 7 Message-Prettifyer aktivieren</label>
+									<span class="" type="button" data-bs-toggle="collapse" data-bs-target="#cf7_message_prettifyer-info" aria-expanded="false" aria-controls="cf7_message_prettifyer-info">ℹ️</span>
+									<div class="collapse" id="cf7_message_prettifyer-info">
+										<div class="card card-body">
+											<p>Aktivieren Sie diese Option, um benutzerdefinierte CSS-Stile auf die Nachrichten von Contact Form 7 anzuwenden, die das Erscheinungsbild verbessern.</p>
+											<?php
+											$cf7_status = check_contact_form_7_status();
+											if ($cf7_status === 'active') : ?>
+												<p>Contact Form 7 ist installiert und aktiv.</p>
+												<!-- Hier könnten Sie weitere Einstellungen oder Informationen anzeigen -->
+											<?php elseif ($cf7_status === 'not_activated') : ?>
+												<div class="notice notice-warning">
+													<p><strong>Hinweis:</strong> Das Plugin <a href="https://de.wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7</a> ist installiert, aber nicht aktiviert. Bitte aktivieren Sie das Plugin, um diese Funktion zu nutzen.</p>
+												</div>
+											<?php else : ?>
+												<div class="notice notice-error">
+													<p><strong>Fehler:</strong> Das Plugin <a href="https://de.wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7</a> ist nicht installiert. Bitte installieren Sie das Plugin, um diese Funktion zu nutzen.</p>
+												</div>
+											<?php endif; ?>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+
+
+
 
 					
 				</div>

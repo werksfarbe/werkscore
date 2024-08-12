@@ -1,0 +1,37 @@
+:root {
+  --cf7pms-padding: calc( var(--inputs-height)/2 + var(--inputs-border-width,0px) - 0.7em ) var(--inputs-padding);
+  --cf7pms-border-radius: 0.3rem;
+  --cf7pms-msgbackground: var(--color-content-primary);
+  --cf7pms-msgbordercolor: var(--color-content-primary);
+  --cf7pms-textcolor: var(--color-alt-content-text);
+}
+
+
+.l-section .wpcf7 form.invalid .wpcf7-response-output {
+	padding: var(--cf7pms-padding);
+	border-radius: var(--cf7pms-border-radius);
+	background: var(--cf7pms-msgbackground);
+	border-color: var(--cf7pms-msgbordercolor);
+	color: var(--color-alt-content-text);
+}
+
+.l-section .wpcf7 form.invalid .wpcf7-not-valid-tip {
+	padding: var(--cf7pms-padding);
+	border-radius: var(--cf7pms-border-radius);
+	background: var(--cf7pms-msgbackground);
+	border-color: var(--cf7pms-msgbordercolor);
+	color: var(--color-alt-content-text);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.l-section .wpcf7 form.invalid input:not([type=submit]).wpcf7-not-valid {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+.l-section.color_alternate .wpcf7 form.invalid .wpcf7-response-output {
+	background: var(--color-alt-content-primary);
+	border-color: var(--color-alt-content-primary);
+	color: var(--color-content-text);
+}
