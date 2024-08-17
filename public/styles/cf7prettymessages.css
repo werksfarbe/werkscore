@@ -26,6 +26,8 @@
 	background: var(--cf7pms-msgbackground);
 	border-color: var(--cf7pms-msgbordercolor);
 	color: var(--color-alt-content-text);
+	margin-left: 0;
+	margin-right: 0;
 }
 .l-section .wpcf7 form.invalid .wpcf7-response-output {
 	background: var(--cf7pms-msgbackground);
