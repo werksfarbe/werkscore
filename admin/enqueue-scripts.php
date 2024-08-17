@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 function werkscore_enqueue_admin_styles_and_scripts($hook) {
 	// Überprüfen, ob wir uns auf der spezifischen Plugin-Seite befinden
-	if ($hook != 'toplevel_page_werkscore-plugin') {
+	if ($hook != 'settings_page_werkscore-plugin') {  // Anpassung des Hook-Checks
 		return;
 	}
 

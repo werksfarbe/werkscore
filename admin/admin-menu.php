@@ -13,7 +13,7 @@ class WerkscorePluginAdminMenu {
 	}
 
 	public function add_plugin_page() {
-		add_menu_page(
+		add_options_page(
 			'Werkscore Einstellungen', // Page title
 			'Werkscore', // Menu title
 			'manage_options', // Capability
